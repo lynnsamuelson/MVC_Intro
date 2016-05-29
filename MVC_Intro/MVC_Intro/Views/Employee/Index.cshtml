@@ -1,0 +1,20 @@
+﻿@model MVC_Intro.ViewModels.EmployeeDepartmentDetailViewModel
+<h1>List of Employees</h1>
+@Html.ActionLink("Add An Employee", "Create")
+@using (Html.BeginForm("Index", "Employee"))
+{
+    <table>
+        <th>Name</th>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.Name)</td>
+                <td>@Html.DisplayFor(ModelItem => item.DepartmentName)</td>
+                <td>@Html.ActionLink("edit", "Edit", new { employeeId = item.EmployeeId })</td>
+                <td>@Html.ActionLink("delete", "Delete", new { employeeId = item.EmployeeId })</td>
+            </tr>
+        }
+
+    </table>
+}
+
